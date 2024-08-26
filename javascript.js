@@ -1,5 +1,4 @@
-// console.log('Hello World');
-// console.log('I sure love my baby');
+
 
 function play(playerChoice) {
     const choices = ['rock', 'paper', 'scissors'];
