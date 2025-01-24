@@ -1,23 +1,29 @@
+    
+
 function playGame() {
     let humanScore = 0;
     let computerScore = 0;
 
-function getComputerChoice() {
+function GetComputerChoice() {
    /* const max = Math.ceil(4);
     const min = Math.floor(1);*/
-    let randomNumber = Math.floor(Math.random() * 3) +1; /*(max-min) + min);*/
-        if (randomNumber === 1) {
+    let computerChoice = Math.floor(Math.random() * 3) +1 /*(max-min) + min)*/;
+        if (computerChoice === 1) {
             return "rock";
+            
         }
-        else if (randomNumber === 2) {
+        else if (computerChoice === 2) {
             return "paper";
         }
     else {
         return "scissors";
     }
-}
 
-function getHumanChoice() {
+
+
+    }
+
+function GetHumanChoice() {
     let userInput = prompt("Choose Rock, Paper, or Scissors").toUpperCase();
     if (userInput === "ROCK" || userInput === "PAPER" || userInput === "SCISSORS") {
         return userInput;
@@ -28,9 +34,42 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-    
 
-    if (humanChoice === "ROCK" && computerChoice === "SCISSORS") {   
+    /* The logic below works most of the time however, not consistant as expected */
+
+   /* if (humanChoice === computerChoice) {
+        console.log("It's a tie; neither win nor lose!");
+
+
+    } else if  (
+        (humanChoice === "ROCK" && computerChoice === "PAPER") ||
+        (humanChoice === "PAPER" && computerChoice === "SCISSOR") ||
+        (humanChoice === "SCISSOR" && computerChoice === "ROCK")
+    ) {
+        console.log(`"You lose! computer chose ${computerChoice}."`);
+        computerScore ++;
+    } else {
+        console.log(`"You win! Computer chose ${computerChoice}."`);
+        humanScore ++;
+    }*/
+
+    /* The logic below does not work as intended; I need to figure out why.*/
+    
+    /*if (humanChoice === computerChoice) {
+        console.log("it's a tie!");
+    } else if ((humanChoice === "rock" && computerChoice === "scissors") ||
+        (humanChoice === "paper" && computerChoice === "rock") ||
+        (humanChoice === "scissors" && computerChoice === "paper")
+    ) {
+        console.log(`"You win!  Computer chose ${computerChoice}."`);
+        humanScore ++; 
+    } else {
+        console.log(`"You lose! Computer chose ${computerChoice}."`);
+    }*/
+   
+   /* The logic below does work */
+   
+     if (humanChoice === "ROCK" && computerChoice === "SCISSORS") {   
         console.log("You win! Rock beats scissors!");
         humanScore ++;
     
@@ -43,7 +82,7 @@ function playRound(humanChoice, computerChoice) {
         console.log("You win! Scissors beat Paper!");
         humanScore ++;
     
-    }   else if (humanChoice === computerChoice .toUpperCase()) { 
+    }  else if (humanChoice === computerChoice .toUpperCase()) { 
         console.log("It's a tie! No one wins.");
     
     }   else {
@@ -55,11 +94,12 @@ function playRound(humanChoice, computerChoice) {
     
 
 
-playRound(getHumanChoice(), getComputerChoice());
-playRound(getHumanChoice(), getComputerChoice());
-playRound(getHumanChoice(), getComputerChoice());
-playRound(getHumanChoice(), getComputerChoice());
-playRound(getHumanChoice(), getComputerChoice());
+playRound(GetHumanChoice() .toUpperCase(), GetComputerChoice() .toUpperCase());
+playRound(GetHumanChoice() .toUpperCase(), GetComputerChoice() .toUpperCase());
+playRound(GetHumanChoice() .toUpperCase(), GetComputerChoice() .toUpperCase());
+playRound(GetHumanChoice() .toUpperCase(), GetComputerChoice() .toUpperCase());
+playRound(GetHumanChoice() .toUpperCase(), GetComputerChoice() .toUpperCase());
+
 
 if (humanScore > computerScore) {
     console.log("Human is the overall winner with a score of: " + humanScore);
