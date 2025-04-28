@@ -1,9 +1,12 @@
-    
-
 function playGame() {
+    /* Declare the players score variables. Create two new variables named
+        humanScore and computerScore in the global scope. Initialize variables with
+            the value of 0.*/ 
     let humanScore = 0;
     let computerScore = 0;
-
+    /*Create new function named getComputerChoice. Write the code so that
+    getComputerChoice will randomly return one of the following strings: rock, paper
+    , or scissors. */
 function GetComputerChoice() {
    /* const max = Math.ceil(4);
     const min = Math.floor(1);*/
@@ -22,7 +25,9 @@ function GetComputerChoice() {
 
 
     }
-
+    /* Write the logic to get the human choice. Create new function named
+        getHumanChoice. Write the code so that it will return one of the valid 
+            choices depending on user input.*/ 
 function GetHumanChoice() {
     let userInput = prompt("Choose Rock, Paper, or Scissors").toUpperCase();
     if (userInput === "ROCK" || userInput === "PAPER" || userInput === "SCISSORS") {
@@ -32,7 +37,8 @@ function GetHumanChoice() {
         console.error("NOT A VALID INPUT");
     }
 }
-
+    /* Write the logic to play a single round. Create a new function named playRound
+        Define two parameters: humanChoice and computerChoice.*/
 function playRound(humanChoice, computerChoice) {
 
     /* The logic below works most of the time however, not consistant as expected */
@@ -68,7 +74,11 @@ function playRound(humanChoice, computerChoice) {
     }*/
    
    /* The logic below does work */
-   
+        /* Write the code for you playRound function to console.log a string value
+            representing the round winner, such as: "You lose! Paper beats Rock".
+                Increment the humanScore or computerScore variable based on the round
+                    winner. Make your function's humanChoice parameter case-insensitive
+                        so that players can input rock, ROCK, RocK, or other variations. */
      if (humanChoice === "ROCK" && computerChoice === "SCISSORS") {   
         console.log("You win! Rock beats scissors!");
         humanScore ++;
@@ -92,7 +102,7 @@ function playRound(humanChoice, computerChoice) {
 }
 
     
-
+    /* Play 5 rounds by calling playRound 5 times.*/
 
 playRound(GetHumanChoice() .toUpperCase(), GetComputerChoice() .toUpperCase());
 playRound(GetHumanChoice() .toUpperCase(), GetComputerChoice() .toUpperCase());
@@ -113,7 +123,8 @@ else {
 
 }
 
-
+    /* Move your playRound function and score variables so that they're declared
+        inside of the new playGame function. */
 
 playGame();
 
